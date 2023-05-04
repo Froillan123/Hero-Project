@@ -49,6 +49,9 @@ html::-webkit-scrollbar-thumb{
   border-radius: 100vw;
   margin-block: 0.5em;
 }
+section{
+  padding: 2rem 9%;
+}
 .header .header1{
   padding: 1rem 5%;
   display: flex;
@@ -59,7 +62,7 @@ html::-webkit-scrollbar-thumb{
   width: 140px;
   height: auto;
   border-radius: 50%;
-  border: 5px solid var(--main);
+  border: 6px solid var(--main);
 }
 .header .header1 img:hover{
   border: 10px solid var(--blue);
@@ -111,6 +114,7 @@ html::-webkit-scrollbar-thumb{
 .header .header1 .icon div:hover,
 .header .header1 .icon a:hover{
   color: var(--blue);
+  transform: scale(1.1);
 }
 #search-button{
   display: none;
@@ -259,7 +263,6 @@ html::-webkit-scrollbar-thumb{
   color: red;
   font-size: 15px;
 }
-
 .btn{
   margin-top: 1rem;
     display:inline-block;
@@ -273,4 +276,85 @@ html::-webkit-scrollbar-thumb{
 }
 .btn:hover{
   background:var(--green);
+}
+
+@media (max-width:1034px){
+
+  html{
+      font-size: 55%;
+  }
+
+  .header .header1{
+      padding:2rem;
+  }
+  .header .header1 h1{
+   display: none;
+  }
+  .header .header1 img{
+    width: 110px;
+  }
+  .aside img{
+   display: none;
+  }
+  .header .header1 .search-form{
+    display: inline;
+    width: 40em;
+    margin-left: 20px;
+  }
+  .main{
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+  }
+}
+
+@media (max-width:768px){
+
+  html{
+      scroll-padding-top: 0;
+  }
+
+  body{
+      padding-bottom: 6rem;
+  }
+
+  .header .header2{
+      display:none;
+  }
+  .bottom-nav{
+      display: block;
+  }
+
+  #search-button{
+      display: inline-block;
+  }
+
+  .header .header1{
+      box-shadow: var(--box-shadow);
+      position: relative;
+  }
+
+  .header .header1 .search-form{
+      position:absolute;
+      top:-115%; right:2rem;
+      width: 92%;
+      box-shadow: var(--box-shadow);
+  }
+ 
+.header .header1 .search-form.active{
+    top:115%;
+}
+
+
+}
+@media only screen and (max-width: 768px) {
+  .header .header1 .icon a{
+    display: none;
+  }
+  .main{
+    max-width: 100%;
+    margin: 0;
+  }
+  .aside img{
+    display: none;
+  }
 }
