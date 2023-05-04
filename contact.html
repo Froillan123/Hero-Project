@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+     <!-- links -->
+     <link rel="stylesheet" href="css/contact.css" />
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- header section -->
+    <header class="header">
+        <div class="header1">
+          <a href="index.html"><img src="img/logo.png"></a>
+          <h1>K Corporation</h1>
+          <form action="" class="search-form">
+            <input type="search" placeholder="Search Here" id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+          </form>
+          <div class="icon">
+            <div id="search-button" class="fas fa-search"></div>
+            <a href="about.html" class="fas fa-bookmark"></a>
+            <a href="contact.html" class="fa fa-address-book" aria-hidden="true"></a>
+            <a href=""class="fa fa-shopping-cart" aria-hidden="true"></a>
+            <a href="" class="fas fa-book"></a>
+            <div id="login-button" class="fas fa-user"></div>
+          
+          </div>
+        </div>
+  <div class="header2">
+  
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="product.html">Product</a>
+      <a href="reservation.html">Reservation</a>
+  
+    </nav>
+  </div>
+  
+      </header>
+  
+      <!-- For Mobile Devices Navigation -->
+      <nav class="bottom-nav">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="about.html"><i class="fa fa fa-list-alt"></i></a>
+        <a href="contact.html"><i class="fas fa-phone"></i></a>
+        <a href="product.html"><i class="fa fa-shopping-cart"></i></a>
+        <a href="reservation.html"><i class="fa fa-book"></i></a>
+      </nav>
+  
+      <!-- Log In Form  -->
+      <div class="login-form">
+  
+        <div id="close-login-btn" class="fas fa-times"></div>
+    
+        <form onsubmit="" action="index.htm" id="form">
+            <h3>sign in</h3>
+            <span>username</span>
+            <input type="email" name="" class="box" placeholder="enter your email" id="username">
+            <span>password</span>
+            <input type="password" name="" class="box" placeholder="enter your password" id="password">
+            <div id="error"></div>
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn" onclick="getInfo()">
+            <p>Forgot password? <a href="forgot pass and create acc/forgot.html">Click Here</a></p> 
+            <p>don't have an account ? <a href="forgot pass and create acc/signup.html" id="sign_up">create one</a></p>
+        </form>
+    
+    </div>
+  
+</body>
+<script>
+    
+
+
+
+    searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-button').onclick = () =>{
+  searchForm.classList.toggle('active');
+}
+let loginForm = document.querySelector('.login-form');
+
+document.querySelector('#login-button').onclick = () =>{
+  loginForm.classList.toggle('active');
+}
+
+document.querySelector('#close-login-btn').onclick = () =>{
+  loginForm.classList.remove('active');
+}
+const name = document.getElementById('username');
+const password = document.getElementById('password');
+const form = document.getElementById('form');
+const errorElement = document.getElementById('error')
+
+
+form.addEventListener('submit', (e) =>{
+  let message = []
+  if (password.value.length <= 8){
+    message.push('Password must be longer 8 characters')
+  }
+  if (password.value.length >= 20){
+    message.push('Password must be less than 20 characters')
+  }
+  if (message.length > 0){
+    e.preventDefault()
+    swal({
+      title: "Oops!",
+      text: message.join(', '),
+      icon: "error",
+      button: "OK",
+    });
+  }
+});
+
+window.onscroll = () =>{
+
+  searchForm.classList.remove('active');
+
+  if(window.scrollY > 80){
+    document.querySelector('.header .header2').classList.add('active');
+  }else{
+    document.querySelector('.header .header2').classList.remove('active');
+  }
+
+}
+
+window.onload = () =>{
+
+  if(window.scrollY > 80){
+    document.querySelector('.header .header2').classList.add('active');
+  }else{
+    document.querySelector('.header .header2').classList.remove('active');
+  }
+
+  fadeOut();
+
+}
+</script>
+</html>
